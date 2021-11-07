@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./CSS/css.css">
+
+<body>
+
+    <!--INÍCIO TÍTULO E LOGOMARCA-->
+
+    <!--TÍTULO-->
+    <div id="topo">
+        <h2 class="titulo">Livraria</h2>
+        <h1 class="titulo" style="font-size: 100pt;">Sol Nascente</h1>
+    </div>
+
+    <!--LOGOMARCA-->
+    <img id="logo" src="./IMG/ImgFundoTopo.jpg">
+
+    <!--FIM TÍTULO E LOGOMARCA-->
+
+
+    <!--INÍCIO NAVBAR E CONTEUDO -->
+    <div id="imagemDeFundo">
+
+        <!--INÍCIO NAVBAR-->
+        <div class="navegacao">
+
+            <!--DROPDOWN CLIENTE-->
+            <div class="topico">
+                <button class="topicobtn">Cliente
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="topico-conteudo">
+                    <a href="#" class="item" onclick="exibe('CadastroCliente')">Cadastro</a>
+                    <a href="#" class="item" onclick="exibe('RelatorioCliente'); ExibCliente()">Relatório</a>
+                </div>
+            </div>
+
+            <!--DROPDOWN FUNCIONARIOS-->
+            <div class="topico">
+                <button class="topicobtn">Funcionários
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="topico-conteudo">
+                    <a href="#" class="item" onclick="exibe('CadastroFuncionario')">Cadastro</a>
+                    <a href="#" class="item" onclick="exibe('RelatorioFuncionario'); ExibFuncionario();">Relatório</a>
+                </div>
+            </div>
+
+            <!--DROPDOWN LIVROS-->
+            <div class="topico">
+                <button class="topicobtn">Livros
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="topico-conteudo">
+                    <a href="#" class="item" onclick="exibe('CadastroLivro')">Cadastro</a>
+                    <a href="#" class="item" onclick="exibe('AtualizacaoEstoque')">Atualização do Estoque</a>
+                    <a href="#" class="item" onclick="exibe('RelatorioEstoque'); ExibLivro();">Relatório do Estoque</a>
+                    <a href="#" class="item" onclick="exibe('CadastroVenda')">Venda</a>
+                    <a href="#" class="item" onclick="exibe('RelatorioVendas'); ExibVendas();">Relatório de Vendas</a>
+                </div>
+            </div>
+
+            <!--ESPAÇAMENTO ENTRE OS ITNES DO NAVBAR E A BARRA DE PESQUISA-->
+            <div style="width: 610px; float: left;">&nbsp;</div>
+
+            <!--TIPO DE CONSULTA (POR TÍTULO OU POR AUTOR)-->
+            <div class="topico2">
+                <label class="col-md-4 control-label tamanhoLabel" for="consulta">Consulta por: </label>
+                <div class="col-md-4 consulta">
+                    <select id="consulta" name="consulta" class="">
+                        <option value="t">Título</option>
+                        <option value="a">Autor</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--BARRA DE PESQUISA-->
+            <div class="pesquisa-container barra">
+
+                <input type="text" placeholder="Digite Aqui" name="search" class="pesquisa" id="barraPesquisa">
+                <button type="submit" onclick="exibe('Pesquisa'); Busca();" class="pesquisa"><i
+                        class="fa fa-search"></i></button>
+
+            </div>
+        </div>
+        <!--FIM NAVBAR-->
+
+
+        <!--INÍCIO CLIENTE-->
+
+        <!--INÍCIO CADASTRO-->
+        <div class="esconde" id="CadastroCliente">
+
+            <!--FORMULARIO-->
+            <div id="formCliente" class="container fundoFormCliente">
+
+                <form class="form-horizontal container" name="clienteForm">
+                    <fieldset>
+
+                        <!-- TITULO -->
+                        <legend>Cadastro de Clientes</legend>
+
+                        <!-- NOME -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdNome">Nome:</label>
+                            <div class="col-md-4">
+                                <input id="IdNome" name="IdNome" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: João da Silva</span>
+                            </div>
+                        </div>
+
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdTel">Telefone:</label>
+                            <div class="col-md-4">
+                                <input id="IdTel" name="IdTel" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo (21) 91234-5678</span>
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdMail">Email:</label>
+                            <div class="col-md-4">
+                                <input id="IdMail" name="IdMail" type="email" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: email@email.com</span>
+                            </div>
+                        </div>
+
+                        <!-- CPF -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdCpf">CPF:</label>
+                            <div class="col-md-4">
+                                <input id="IdCpf" name="IdCpf" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md">
+                                <span class="help-block">Exemplo: 123.456.789-12</span>
+                            </div>
+                        </div>
+
+                        <!-- SEXO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sexo">Sexo:</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline" for="sexo-0">
+                                    <input type="radio" name="sexo" id="sexo-0" value="1" checked="checked">
+                                    Masculino
+                                </label>
+                                <label class="radio-inline" for="sexo-1">
+                                    <input type="radio" name="sexo" id="sexo-1" value="2">
+                                    Feminino
+                                </label>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <!-- BOTÕES -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="IdCadastro"></label>
+                    <div class="col-md-8">
+                        <button id="IdCadastro" name="IdCadastro" class="btn btn-success"
+                            onclick="SubCliente()">CADASTRAR</button>
+                        <button id="IdLimpar" name="IdLimpar" class="btn btn-danger" onclick="LimpaFormCliente()">LIMPAR
+                            DADOS</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--FIM CADASTRO-->
+
+        <!--INÍCIO RELATÓRIO-->
+        <div class="esconde" id="RelatorioCliente">
+
+            <div class="container" id="ClientesCadastrados">
+                <h1>&nbsp;Relatório de Clientes</h1>
+
+                <div id="ExibeCliente"></div>
+
+            </div>
+
+        </div>
+        <!--FIM RELATÓRIO-->
+
+        <!--FIM CLIENTE-->
+
+
+        <!--INÍCIO FUNCIONÁRIO-->
+
+        <!--INÍCIO CADASTRO-->
+        <div class="esconde" id="CadastroFuncionario">
+
+            <!--FORMULARIO-->
+            <div id="formFuncionario" class="container fundoFormFuncionario">
+
+                <form class="form-horizontal container" name="funcionarioForm">
+                    <fieldset>
+
+                        <!-- TITULO -->
+                        <legend>Cadastro de Funcionários</legend>
+
+                        <!-- NOME -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdNomeFunc">Nome:</label>
+                            <div class="col-md-4">
+                                <input id="IdNomeFunc" name="IdNomeFunc" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: João da Silva</span>
+                            </div>
+                        </div>
+
+                        <!-- TELEFONE -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdTelFunc">Telefone:</label>
+                            <div class="col-md-4">
+                                <input id="IdTelFunc" name="IdTelFunc" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo (21) 91234-5678</span>
+                            </div>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdMailFunc">Email:</label>
+                            <div class="col-md-4">
+                                <input id="IdMailFunc" name="IdMailFunc" type="email" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: email@email.com</span>
+                            </div>
+                        </div>
+
+                        <!-- CPF -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdCpfFunc">CPF:</label>
+                            <div class="col-md-4">
+                                <input id="IdCpfFunc" name="IdCpfFunc" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md">
+                                <span class="help-block">Exemplo: 123.456.789-12</span>
+                            </div>
+                        </div>
+
+                        <!-- SEXO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sexoFunc">Sexo:</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline" for="sexoFunc-0">
+                                    <input type="radio" name="sexoFunc" id="sexoFunc-0" value="1" checked="checked">
+                                    Masculino
+                                </label>
+                                <label class="radio-inline" for="sexoFunc-1">
+                                    <input type="radio" name="sexoFunc" id="sexoFunc-1" value="2">
+                                    Feminino
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- FILIACAO(PAI) -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdFiliacao">Filiação:</label>
+                            <div class="col-md-4">
+                                <input id="IdFiliacaoPai" name="IdFiliacao" type="text" placeholder="Digite Aqui (PAI)"
+                                    class="form-control input-md">
+                                <span class="help-block">Exemplo: José da Silva</span>
+                            </div>
+                        </div>
+
+                        <!-- FILIACAO(MÃE) -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdFiliacao"></label>
+                            <div class="col-md-4">
+                                <input id="IdFiliacaoMae" name="IdFiliacao" type="text" placeholder="Digite Aqui (MÃE)"
+                                    class="form-control input-md">
+                                <span class="help-block">Exemplo: Maria da Silva</span>
+                            </div>
+                        </div>
+
+                        <!-- ENDEREÇO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdEndereco">Endereço:</label>
+                            <div class="col-md-4">
+                                <input id="IdEndereco" name="IdEndereco" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: Rua das Américas, 800, Barra da Tijuca, Rio de
+                                    Janeiro, RJ</span>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <!-- BOTÕES -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="IdCadastro"></label>
+                    <div class="col-md-8">
+                        <button id="IdCadastroFunc" name="IdCadastro" class="btn btn-success"
+                            onclick="SubFuncionarios()">CADASTRAR</button>
+                        <button id="IdLimparFunc" name="IdLimpar" class="btn btn-danger"
+                            onclick="LimpaFormFuncionario()">LIMPAR DADOS</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--FIM CADASTRO-->
+
+        <!--INÍCIO RELATÓRIO-->
+        <div class="esconde" id="RelatorioFuncionario">
+
+            <div class="container" id="FuncionariosCadastrados">
+                <h1>&nbsp;Relatório de Funcionarios</h1>
+
+                <div id="ExibeFuncionario"></div>
+
+            </div>
+
+        </div>
+        <!--FIM RELATÓRIO-->
+
+        <!--INÍCIO RELATÓRIO DE VENDAS-->
+        <div class="esconde" id="RelatorioVendas">
+
+            <div class="container" id="VendasCadastradas">
+                <h1>&nbsp;Relatório de Vendas</h1>
+
+                <div id="ExibeVenda"></div>
+
+            </div>
+
+        </div>
+        <!--FIM RELATÓRIO DE VENDAS-->
+
+        <!--FIM FUNCIONÁRIO-->
+
+
+        <!--INÍCIO LIVROS-->
+
+        <!--INÍCIO CADASTRO-->
+        <div class="esconde" id="CadastroLivro">
+
+            <!--FORMULARIO-->
+            <div id="formLivro" class="container fundoFormLivro">
+
+                <form class="form-horizontal container" name="livrosForm" id="FormularioLivro">
+                    <fieldset id="insereDiv">
+
+                        <!-- TITULO -->
+                        <legend>Cadastro de Livros</legend>
+
+                        <!-- TITULO DO LIVRO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdTitulo">Titulo:</label>
+                            <div class="col-md-4">
+                                <input id="IdTitulo" name="IdTitulo" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: Dom Casmurro</span>
+                            </div>
+                        </div>
+
+                        <!-- AUTOR(ES)-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdAutor">Autor:</label>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <input id="IdAutor" name="IdAutor" type="text" placeholder="Digite Aqui"
+                                        class="form-control input-md" required="">
+                                    <span class="help-block">Exemplo: Machado de Assis</span>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <span class="material-icons green input-group-append" onclick="addAutor()">
+                                        control_point
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GENERO(S) -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdGenero">Gênero:</label>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <input id="IdGenero" name="IdGenero" type="text" placeholder="Digite Aqui"
+                                        class="form-control input-md" required="">
+                                    <span class="help-block">Exemplo: Romance</span>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <span class="material-icons green input-group-append" onclick="addGenero()">
+                                        control_point
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PREÇO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdPreco">Preço:</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">R$</span>
+                                    <input id="IdPreco" name="IdPreco" class="form-control" placeholder="Digite Aqui"
+                                        type="text" required="">
+                                </div>
+                                <p class="help-block">Exemplo: 200.00</p>
+                            </div>
+                        </div>
+
+                        <!-- QTD DE EXEMPLARES -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdUnidade">Qtd de Exemplares</label>
+                            <div class="col-md-4">
+                                <input id="IdUnidade" name="IdUnidade" type="number" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <p class="help-block">Exemplo: 50</p>
+                            </div>
+                        </div>
+
+                        <!-- EDITORA -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdEditora">Editora:</label>
+                            <div class="col-md-4">
+                                <input id="IdEditora" name="IdEditora" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: Moderna</span>
+                            </div>
+                        </div>
+
+                        <!-- ANO LANÇAMENTO-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdAno">Ano de Lançamento:</label>
+                            <div class="col-md-4">
+                                <input id="IdAno" name="IdAno" type="number" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: 2005</span>
+                            </div>
+                        </div>
+
+                        <!-- IDIOMA -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdIdioma">Idioma</label>
+                            <div class="col-md-4">
+                                <input id="IdIdioma" name="IdIdioma" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: Português</span>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <!-- BOTÕES -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="IdCadLivro"></label>
+                    <div class="col-md-8">
+                        <button id="IdCadLivro" name="IdCadLivro" class="btn btn-success"
+                            onclick="subLivros()">CADASTRAR</button>
+                        <button id="IdLimpLivro" name="IdLimpLivro" class="btn btn-danger"
+                            onclick="LimpaFormLivro()">LIMPAR DADOS</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--FIM CADASTRO-->
+
+        <!--INÍCIO ATUALIZAÇÃO DO ESTOQUE-->
+        <div class="esconde" id="AtualizacaoEstoque">
+
+            <!--FORMULARIO-->
+            <div id="formAtual" class="container fundoFormAtual">
+
+                <form class="form-horizontal container" name="atualForm" id="FormularioAtual">
+                    <fieldset>
+
+                        <!-- TITULO -->
+                        <legend>Atualização do Estoque</legend>
+
+                        <!-- ID DO LIVRO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdLivroAtual">ID do Livro</label>
+                            <div class="col-md-4">
+                                <input id="IdLivroAtual" name="IdLivroAtual" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="" onchange="validaLivroAtual()">
+                                <span class="help-block">Exemplo: L0.2021</span>
+                            </div>
+                        </div>
+
+                        <span class="classValidaLivroAtual"></span>
+
+                        <!-- SELEÇÃO DA AÇÃO (INCLUIR ou RETIRAR) -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="exemplaresIncAdd">Selecione a ação</label>
+                            <div class="col-md-4">
+                                <label class="radio-inline" for="exemplaresIncAdd-0">
+                                    <input type="radio" name="exemplaresIncAdd" id="exemplaresIncAdd-0" value="a"
+                                        checked="checked">
+                                    Adicionar Exemplares
+                                </label>
+                                <label class="radio-inline" for="exemplaresIncAdd-1">
+                                    <input type="radio" name="exemplaresIncAdd" id="exemplaresIncAdd-1" value="r">
+                                    Retirar Exemplares
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Nº DE EXEMPLARES-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdQtdAtual">Nº de Exemplares
+                                Recebidos/Retirados</label>
+                            <div class="col-md-3">
+                                <input id="IdQtdAtual" name="IdQtdAtual" type="number" placeholder="0"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: 50</span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="button1id"></label>
+                    <div class="col-md-8">
+                        <button id="button1id" name="button1id" class="btn btn-success" onclick="AcaoAtual()" >ATUALIZAR</button>
+                        <button id="button2id" name="button2id" class="btn btn-danger" onclick="limpaAtual()">LIMPAR DADOS</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--FIM ATUALIZAÇÃO DO ESTOQUE-->
+
+        <!--INÍCIO RELATÓRIO DE ESTOQUE-->
+        <div class="esconde" id="RelatorioEstoque">
+
+            <div class="container" id="LivrosCadastrados">
+                <h1>&nbsp;Relatório do Estoque</h1>
+
+                <div id="ExibeLivro"></div>
+
+            </div>
+
+        </div>
+        <!--FIM RELATÓRIO DE ESTOQUE-->
+
+        <!--INÍCIO VENDA-->
+        <div class="esconde" id="CadastroVenda">
+
+            <!--FORMULARIO-->
+            <div id="formVenda" class="container fundoFormVenda">
+
+                <form class="form-horizontal container" name="vendasForm" id="FormularioVenda">
+                    <fieldset id="InsereDivVenda">
+
+                        <!-- TITULO -->
+                        <legend>Cadastro de Venda</legend>
+
+                        <!-- ID DO FUNCIONARIO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdMatFunc">ID do Funcionário:</label>
+                            <div class="col-md-4">
+                                <input id="IdMatFunc" name="IdMatFunc" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="" onchange="validaFuncionario()">
+                                <span class="help-block">Exemplo: F0.2021</span>
+                            </div>
+                        </div>
+                        <span id="validaFuncionario"></span>
+
+                        <!-- CPF DO CLIENTE -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdCpfCli">CPF do Cliente:</label>
+                            <div class="col-md-4">
+                                <input id="IdCpfCli" name="IdCpfCli" type="text" placeholder="Digite Aqui"
+                                    class="form-control input-md" required="" onchange="validaCliente()">
+                                <span class="help-block">Exemplo: 123.456.789-12</span>
+                            </div>
+                        </div>
+                        <span id="validaCliente"></span>
+
+                        <!-- ID DO LIVRO -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdMatLivro">ID do Livro:</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input id="IdMatLivro" name="IdMatLivro" type="text" placeholder="Digite Aqui"
+                                        class="form-control input-md" required="" onchange="validaLivro()">
+                                    <span class="help-block">Exemplo: L0.2021</span>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <span class="material-icons green input-group-append" onclick="addVenda()">
+                                        control_point
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Nº DE UNIDADES -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="IdQuantVend">Nº de Unidades</label>
+                            <div class="col-md-3">
+                                <input id="IdQuantVend" name="IdQuantVend" type="number" placeholder="0"
+                                    class="form-control input-md" required="">
+                                <span class="help-block">Exemplo: 2</span>
+                            </div>
+                        </div>
+                        <span class="classValidaLivro"></span>
+
+                    </fieldset>
+                </form>
+
+                <!-- BOTÕES -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="button1id"></label>
+                    <div class="col-md-8">
+                        <button id="button1id" name="button1id" class="btn btn-success"
+                            onclick="subVendas()">VENDER</button>
+                        <button id="button2id" name="button2id" class="btn btn-danger" onclick="LimpaVendas()">LIMPAR
+                            DADOS</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--FIM VENDA-->
+
+        <!--FIM FUNCIONÁRIO-->
+
+
+        <!--INÍCIO EXIBIÇÃO DA PESQUISA-->
+        <div class="esconde" id="Pesquisa">
+
+            <div class="container" id="resultPesquisa">
+                <h1>&nbsp;Resultado da Consulta</h1>
+
+                <div id="ExibeResult"></div>
+
+            </div>
+
+        </div>
+        <!--FIM EXIBIÇÃO DA PESQUISA-->
+
+    </div>
+    <!-- FIM NAVBAR E CONTEUDO -->
+
+</body>
+<script src="./JS/js.js"></script>
+
+</html>

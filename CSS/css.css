@@ -1,0 +1,369 @@
+/*INÍCIO TÍTULO E LOGOMARCA*/
+#topo{
+    width: 70%;
+    height: 250px;
+    float: left;
+    background-color: #c04041;
+}
+
+.titulo{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: Moyko;
+    padding-left: 50px;
+    padding-top: 10px;
+    color: whitesmoke;
+}
+
+#logo{
+    width: 30%;
+    float: right;
+    height: 250px;
+}
+/*FIM TÍTULO E LOGOMARCA*/
+
+
+/*INÍCIO NAVBAR*/
+.navegacao {
+    width: 100%;
+    height: 50px;
+    clear: both;
+    background-color: #20130d8a;
+  }
+  
+  .navegacao a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .topico {
+    float: left;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .topico .topicobtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    font-family: inherit;
+    margin: 0;
+  }
+
+  .topicobtn{
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .navegacao a:hover, .topico:hover .topicobtn {
+    background-color: #c04040b6;
+  }
+  
+  .topico-conteudo {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9c2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .topico-conteudo a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .topico-conteudo .item:hover {
+    background-color: #ddd;
+  }
+  
+  .topico:hover .topico-conteudo {
+    display: block;
+  }
+
+  .topico2{
+    float: left;
+    overflow: hidden; 
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding-top: 14px;
+    font-family: inherit;
+    margin: 0;
+    width: 200px;
+    margin-bottom: 0px;
+  }
+
+  .tamanhoLabel{
+      width: 120px;
+  }
+
+  .col-md-4{
+      max-width: 70%;
+      padding: 0px;
+  }
+
+.consulta{
+    width: 80px;
+    float: right;
+    padding-top: 0px;
+    margin: 0px;
+}
+
+  .pesquisa-container button {
+    margin-right: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    float: right;
+  }
+
+  .pesquisa{
+      height: 25px;
+      margin-top: 14px;
+  }
+/*FIM NAVBAR*/
+
+/*GERAL*/
+#imagemDeFundo{
+  background-image: url(../IMG/ImgDeFundo.jpeg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.material-icons.green { color: #0eac00; }
+.material-icons.red { color:red; }
+
+/*INÍCIO CLIENTE*/
+#CadastroCliente{
+  width: 100%;
+  height: 850px;
+}
+
+#RelatorioCliente{
+  width: 100%;
+  height: 1000px;
+}
+
+.fundoFormCliente{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 35%;
+}
+
+#ClientesCadastrados{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 70%;
+}
+
+.colab{
+  border-radius: 20px;
+  background-color: rgba(128, 128, 128, 0.473);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#ExibeCliente{
+  width: 98%;
+  height: 550px;
+  overflow-y: scroll;
+}
+/*FIM CLIENTE*/
+
+
+/*INÍCIO FUNCIONÁRIO*/
+#CadastroFuncionario{
+  width: 100%;
+  height: 1050px;
+}
+
+#RelatorioFuncionario{
+  width: 100%;
+  height: 1000px;
+}
+
+.fundoFormFuncionario{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 35%;
+}
+
+#FuncionariosCadastrados{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 70%;
+}
+
+
+#ExibeFuncionario{
+  width: 98%;
+  height: 550px;
+  overflow-y: scroll;
+}
+/*FIM FUNCIONÁRIO*/
+
+
+/*INÍCIO LIVRO*/
+#CadastroLivro{
+  width: 100%;
+  height: 1050px;
+}
+
+#RelatorioEstoque{
+  width: 100%;
+  height: 1000px;
+}
+
+.fundoFormLivro{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 40%;
+}
+
+#FormularioLivro{
+  height: 920px;
+  width: 90%;
+  overflow-y: scroll;
+}
+
+#LivrosCadastrados{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 70%;
+}
+
+#ExibeLivro{
+  width: 98%;
+  height: 550px;
+  overflow-y: scroll;
+}
+
+#AtualizacaoEstoque{
+  width: 100%;
+  height: 950px;
+}
+
+.fundoFormAtual{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 40%;
+}
+
+#FormularioAtual{
+  height: 520px;
+  width: 90%;
+  overflow-y: scroll;
+}
+/*FIM LIVRO*/
+
+
+/*INICIO VENDA*/
+
+#FormularioVenda{
+  height: 520px;
+  width: 90%;
+  overflow-y: scroll;
+}
+
+#CadastroVenda{
+  width: 100%;
+  height: 1050px;
+}
+
+.fundoFormVenda{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 40%;
+}
+
+.valida {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  width: 300px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.erroValida {
+  color: red; 
+  font-size: 12pt;
+  text-align: center;
+}
+
+#RelatorioVendas{
+  width: 100%;
+  height: 1000px;
+}
+
+#VendasCadastradas{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 70%;
+}
+
+#ExibeVenda{
+  width: 98%;
+  height: 550px;
+  overflow-y: scroll;
+}
+/*FIM VENDA*/
+
+
+/*INÍCIO EXIBIÇÃO DA PESQUISA*/
+#Pesquisa{
+  width: 100%;
+  height: 1000px;
+}
+
+#resultPesquisa{
+  background-color: rgba(255, 255, 255, 0.80);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 60px;
+  width: 70%;
+}
+
+#ExibeResult{
+  width: 98%;
+  height: 550px;
+  overflow-y: scroll;
+}
+
+/*FIM EXIBIÇÃO DA PESQUISA*/
+  
+
